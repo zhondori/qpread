@@ -26,4 +26,12 @@ export default {
     }
     return obj;
   },
+  find: function(value: string | object, key: string) {
+    if(typeof value == "object") {
+      return toType(value[key as keyof typeof value]);
+    }
+    const obj = this.toObject(value);
+    
+    return toType(obj[key]);
+  }
 };
